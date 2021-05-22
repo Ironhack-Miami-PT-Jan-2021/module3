@@ -134,4 +134,8 @@ router.get("/logout", isLoggedIn, (req, res) => {
   });
 });
 
+router.get("/isAuthenticated", (req, res) => {
+  res.json({ user: req.session.user });
+});
+
 module.exports = router;
