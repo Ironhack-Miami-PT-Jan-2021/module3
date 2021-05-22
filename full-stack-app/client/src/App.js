@@ -26,7 +26,7 @@ class App extends React.Component {
     console.log(this.state);
     return (
       <div className="App">
-        {this.state.user.username}
+        {this.state.user?.username}
         <Switch>
           {/* a route matching and route starting with /auth/signup, if we want just that route we would add exact */}
           <Route
