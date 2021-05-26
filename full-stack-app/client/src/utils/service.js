@@ -8,6 +8,10 @@ const axiosInstance = axios.create({
 });
 
 const service = {
+  cloudinaryImageUpload: async (celebData) =>
+    await axiosInstance.post("/celeb-with-img", celebData),
+  createNewCelebrity: async (celebData) =>
+    await axiosInstance.post("/celebrity", celebData),
   // signup: async (userCredentials) =>
   //   await axiosInstance.post("/auth/signup", userCredentials),
   // home: async () => await axiosInstance.get("/"),
@@ -16,6 +20,12 @@ const service = {
   getAllCelebrities: async () => await axiosInstance.get("/celebrities"),
   // get info about specific celebrity based on id
   getCelebrityInfo: async (id) => await axiosInstance.get(`/celebrities/${id}`),
+  createCelebrity: async (celebrityData) =>
+    await axiosInstance.post("/celebrities/create", celebrityData),
+  updateCelebrity: (id, celebrityData) =>
+    axiosInstance
+      .post(`/celebrities/${id}/edit`, celebrityData)
+      .then((responseFromAPI) => responseFromAPI),
 };
 
 export default service;

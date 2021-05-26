@@ -6,6 +6,9 @@ import service from "./utils/service";
 import Signup from "./components/auth/Signup";
 import Celebrities from "./components/celebrities/Celebrities";
 import Celebrity from "./components/celebrities/Celebrity";
+import ImgUpload from "./components/imgupload/ImgUpload";
+import CreateCelebrity from "./components/celebrities/CreateCelebrity";
+import UpdateCelebrity from "./components/celebrities/UpdateCelebrity";
 
 class App extends React.Component {
   state = {
@@ -40,6 +43,18 @@ class App extends React.Component {
             render={(props) => (
               <Celebrities {...props} celebrities={this.state.celebrities} />
             )}
+          />
+          <Route
+            path="/imgupload"
+            render={(props) => <ImgUpload {...props} />}
+          />
+          <Route
+            path="/celebrity/create"
+            render={(props) => <CreateCelebrity {...props} />}
+          />
+          <Route
+            path="/celebrities/:id/edit"
+            render={(props) => <UpdateCelebrity {...props} />}
           />
           <Route
             path="/celebrities/:id"
