@@ -24,6 +24,9 @@ app.use("/auth", authRoutes);
 const celebritiesRoutes = require("./routes/celebrities.routes");
 app.use("/celebrities", celebritiesRoutes);
 
+const cloudinaryRoutes = require("./routes/cloudinary.routes");
+app.use("/", cloudinaryRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

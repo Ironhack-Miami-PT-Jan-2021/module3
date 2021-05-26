@@ -8,6 +8,7 @@ const userSchema = new Schema({
   },
   occupation: String,
   catchphrase: String,
+  imgUrl: String,
 });
 
 const Celebrity = model("Celebrity", userSchema);
