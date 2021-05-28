@@ -4,19 +4,13 @@ const uploader = require("../config/cloudinary.config");
 
 const Celebrity = require("../models/Celebrity.model");
 
-/* GET home page */
+/* Image upload example */
 router.post("/image-upload", uploader.single("image"), (req, res, next) => {
   console.log(req.file);
   res.json({ fileURL: req.file.path });
 });
 
-// creating Celebrity separately from uploading img to Cloudinary
-router.post("/celebrity", async (req, res, next) => {
-  const newCeleb = await Celebrity.create(req.body);
-  res.json({ newCeleb });
-});
-
-// creating Celebrity at the same time as uploading img to Cloudinary(don't use)
+// creating Celebrity at the same time as uploading img to Cloudinary(don't use, just an example)
 router.post(
   "/celeb-with-img",
   uploader.single("image"),

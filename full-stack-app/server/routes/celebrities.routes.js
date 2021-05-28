@@ -20,6 +20,12 @@ router.post("/create", async (req, res, next) => {
   });
 });
 
+// creating Celebrity separately from uploading img to Cloudinary
+router.post("/celebrity", async (req, res, next) => {
+  const newCeleb = await Celebrity.create(req.body);
+  res.json({ newCeleb });
+});
+
 router.post("/:id/edit", (req, res, next) => {
   const id = req.params.id;
   const { name, occupation, catchphrase } = req.body;
